@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragment.Frag1"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hs Code"
+        android:textColor="@color/black"
+        android:fontFamily="@font/kotra_bold"
+        android:layout_marginLeft="20dp"
+        android:textSize="28dp"
+        />
+
+        <TextView
+            android:id="@+id/tv_frag1_hscode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="0000.00-0000"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_gothic"
+            android:textSize="28dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분류명"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_bold"
+            android:textSize="20dp"
+            />
+        <TextView
+            android:id="@+id/tv_frag1_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000.00-0000"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_gothic"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="신성질별 설명"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_bold"
+            android:textSize="20dp"
+            />
+        <TextView
+            android:id="@+id/tv_frag1_detail2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000.00-0000"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_gothic"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            />
+        <ImageView
+            android:id="@+id/iv_frag1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom"
+            >
+
+            <Button
+                android:id="@+id/button_frag1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:text="실거래명 보기"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
