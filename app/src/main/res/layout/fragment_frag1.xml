@@ -11,20 +11,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
         android:layout_marginTop="50dp"
         android:padding="10dp"
         >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hs Code"
-        android:textColor="@color/black"
-        android:fontFamily="@font/kotra_bold"
-        android:layout_marginLeft="20dp"
-        android:textSize="28dp"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hs Code"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_bold"
+            android:textSize="28dp"
+            />
 
         <TextView
             android:id="@+id/tv_frag1_hscode"
@@ -36,6 +36,15 @@
             android:fontFamily="@font/kotra_gothic"
             android:textSize="28dp"
             />
+
+        <Button
+            android:id="@+id/button_flag1_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@color/white"
+            android:text="실거래명 \n보기"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,7 +64,7 @@
             android:textSize="20dp"
             />
         <TextView
-            android:id="@+id/tv_frag1_detail"
+            android:id="@+id/tv_frag1_unit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0000.00-0000"
@@ -75,7 +84,7 @@
             android:textSize="20dp"
             />
         <TextView
-            android:id="@+id/tv_frag1_detail2"
+            android:id="@+id/tv_frag1_div"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0000.00-0000"
@@ -90,21 +99,6 @@
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom"
-            >
-
-            <Button
-                android:id="@+id/button_frag1"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="bottom"
-                android:text="실거래명 보기"
-                />
-        </LinearLayout>
 
 
     </LinearLayout>

@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/drawable/round_edge.xml" value="0.2" />
         <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/font/font.xml" value="0.18796296296296297" />
         <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/font/font_kotra_gothic.xml" value="0.18796296296296297" />
-        <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/layout/activity_result.xml" value="0.264" />
+        <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/layout/activity_history.xml" value="0.16" />
+        <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/layout/activity_result.xml" value="0.152" />
         <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/layout/activity_search_main.xml" value="0.2390625" />
         <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/layout/activity_tab.xml" value="0.2" />
         <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/layout/fragment_frag1.xml" value="0.264" />
         <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/layout/fragment_frag3.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/layout/history_recylerview_item.xml" value="0.264" />
         <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/layout/layout_activity_main.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/kjh/Desktop/android/dontquit/app/src/main/res/menu/menu_bottom.xml" value="0.1" />
       </map>

@@ -1,6 +1,8 @@
 package com.example.javapp.dontquit.domain;
 
-public class Category
+import java.io.Serializable;
+
+public class Category implements Serializable
 {
     private String hscode;
     private String hs6content;

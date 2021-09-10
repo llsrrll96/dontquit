@@ -13,9 +13,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -221,14 +222,19 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
         {
             super.handleMessage(msg);
 
+            // inlayout params 정의
+            LinearLayout.LayoutParams inlayoutparams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+            // iv params 정의
+            LinearLayout.LayoutParams ivparams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+
             // tv params 정의
             LinearLayout.LayoutParams tvparams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             tvparams.setMargins(10,10,10,10);
-
-            // tv params 정의
-            LinearLayout.LayoutParams inlayoutparams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
             Map<String,Boolean>ischeck = new HashMap<>();
             for(int i =0; i < categories.getHs6().size(); i++)
@@ -252,6 +258,11 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
                             inlayout.setOrientation(LinearLayout.HORIZONTAL);
                             inlayout.setLayoutParams(inlayoutparams);
 
+                            ImageView ivSearch = new ImageView(mContext);
+                            ivSearch.setLayoutParams(ivparams);
+                            ivSearch.setImageDrawable(ContextCompat.getDrawable(mContext,R.drawable.ic_search));
+                            ivSearch.setForegroundGravity(Gravity.CENTER);
+
                             TextView tvHs10 = new TextView(mContext);
                             tvHs10.setLayoutParams(tvparams);
                             tvHs10.setText(hscode);
@@ -267,9 +278,10 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
                             tvHscontent.setTypeface(fontKotraGothic);
 
                             // 추가
-                            inlayout.addView(tvHs10); inlayout.addView(tvHscontent);
+                            inlayout.addView(ivSearch); inlayout.addView(tvHs10); inlayout.addView(tvHscontent);
                             LinearLayout rootlayout = hs6layoutMap.get(hs6);
                             rootlayout.addView(inlayout);
+
 
                             //버튼
                             inlayout.setOnClickListener(new OnSingleClickListener() {
@@ -277,6 +289,10 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
                                 @Override
                                 public void onSingleClick(View v) {
                                     Toast.makeText(mContext,tvHs10.getText(),Toast.LENGTH_SHORT).show();
+                                    Intent sendIntent = new Intent(getApplicationContext(),TabActivity.class);
+                                    sendIntent.putExtra("data",new Category(
+                                            categories.getHscodes().get(idx),categories.getHs6content().get(idx),categories.getUnitNames().get(idx),categories.getDivinityNames().get(idx)));
+                                    startActivity(sendIntent);
                                 }
                             });
                         }
@@ -287,8 +303,6 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
 
         }
     }
-
-
 
 
     @Override

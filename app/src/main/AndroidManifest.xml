@@ -12,16 +12,18 @@
         android:roundIcon="@mipmap/ic_doit_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:usesCleartextTraffic="true"
-        >
-
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".view.HistoryActivity"
+            android:exported="true" />
         <activity
             android:name=".view.TabActivity"
             android:exported="true" />
         <activity
             android:name=".view.ResultActivity"
             android:exported="true" />
-        <activity android:name=".view.SearchMainActivity"
+        <activity
+            android:name=".view.SearchMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

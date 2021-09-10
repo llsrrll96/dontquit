@@ -52,6 +52,7 @@ public class ApiClient
                 .connectTimeout(1, TimeUnit.MINUTES)
                 .readTimeout(20, TimeUnit.SECONDS)
                 .writeTimeout(15, TimeUnit.SECONDS)
+                .retryOnConnectionFailure(true)
                 .build();
 
         return client;

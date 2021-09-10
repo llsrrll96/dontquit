@@ -19,11 +19,11 @@ public class ProductListModel implements ProductListContract.Model
 {
 
     List<Product> products  = new ArrayList<>();
+    final Apiinterface service = ApiClient.getInstance().create(Apiinterface.class);
 
     @Override
     public void getProductList(onFinishedListener onFinishedListener, ProductName productName)
     {
-        final Apiinterface service = ApiClient.getInstance().create(Apiinterface.class);
 
         Call<List<Product>>call = service.getProduct(productName);
 
