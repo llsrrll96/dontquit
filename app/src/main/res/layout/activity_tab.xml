@@ -36,6 +36,8 @@
         app:tabGravity="center"
         app:tabSelectedTextColor="#FF0000"
         app:tabIndicatorColor="#00FF00"
+        android:background="@drawable/rect_edge_black"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

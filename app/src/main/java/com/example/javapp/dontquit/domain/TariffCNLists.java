@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class TariffCN extends Tariff
+public class TariffCNLists extends Tariff
 {
     @SerializedName("MFN")
     private List<String> mfn;
@@ -16,7 +16,7 @@ public class TariffCN extends Tariff
     private List<String> fta;
 
 
-    public TariffCN(List<String> hscode,List<String> productname,List<String> mfn, List<String> tempTaxRates, List<String> apta, List<String> fta)
+    public TariffCNLists(List<String> hscode, List<String> productname, List<String> mfn, List<String> tempTaxRates, List<String> apta, List<String> fta)
     {
         super(hscode, productname);
         this.mfn = mfn;

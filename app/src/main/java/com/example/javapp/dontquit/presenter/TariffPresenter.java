@@ -1,12 +1,10 @@
 package com.example.javapp.dontquit.presenter;
 
 import com.example.javapp.dontquit.contract.TariffContract;
-import com.example.javapp.dontquit.domain.TariffCN;
+import com.example.javapp.dontquit.domain.TariffCNLists;
 import com.example.javapp.dontquit.domain.TariffRequestBody;
-import com.example.javapp.dontquit.domain.TariffUSA;
+import com.example.javapp.dontquit.domain.TariffEUnUSALists;
 import com.example.javapp.dontquit.model.TariffListModel;
-
-import java.util.List;
 
 public class TariffPresenter implements TariffContract.Presenter, TariffContract.Model.OnFinishedListener
 {
@@ -20,20 +18,29 @@ public class TariffPresenter implements TariffContract.Presenter, TariffContract
     }
 
     @Override
-    public void onFinishedUSA(List<TariffUSA> tariffUSAList)
+    public void onFinishedEU(TariffEUnUSALists tariffEULists)
     {
         if(view != null){
             view.hideProgress();
-            view.showResultUSA(tariffUSAList);
+            view.showResultEU(tariffEULists);
         }
     }
 
     @Override
-    public void onFinishedCN(List<TariffCN> tariffCNList)
+    public void onFinishedUSA(TariffEUnUSALists tariffEUnUSAList)
     {
         if(view != null){
             view.hideProgress();
-            view.showResultCN(tariffCNList);
+            view.showResultUSA(tariffEUnUSAList);
+        }
+    }
+
+    @Override
+    public void onFinishedCN(TariffCNLists tariffCNLists)
+    {
+        if(view != null){
+            view.hideProgress();
+            view.showResultCN(tariffCNLists);
         }
     }
 
@@ -43,6 +50,7 @@ public class TariffPresenter implements TariffContract.Presenter, TariffContract
         if(view != null){
             view.hideProgress();
             view.showToast(message);
+            view.onResponseFailure(message);
         }
     }
 

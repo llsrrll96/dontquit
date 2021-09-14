@@ -54,7 +54,7 @@ public class Frag1 extends Fragment {
         Log.v("category",category.getUnitName());
     }
 
-    public void setViewinit(View view)
+    private void setViewinit(View view)
     {
         tvHscode = (TextView) view.findViewById(R.id.tv_frag1_hscode);
         tvUnitName = (TextView) view.findViewById(R.id.tv_frag1_unit);
@@ -64,14 +64,14 @@ public class Frag1 extends Fragment {
         nextHistoryActivity();
     }
 
-    public void setViewText()
+    private void setViewText()
     {
         tvHscode.setText(category.getHscode());
         tvUnitName.setText(category.getUnitName());
         tvDiv.setText(category.getDivinityName());
     }
 
-    public void nextHistoryActivity()
+    private void nextHistoryActivity()
     {
         btnHistory.setOnClickListener(new OnSingleClickListener() {
             @Override

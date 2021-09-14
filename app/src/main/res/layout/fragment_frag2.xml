@@ -1,14 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.Frag2">
+    android:orientation="vertical"
+    tools:context=".view.fragment.Frag2"
+    >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="관세율"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_bold"
+            android:textSize="28dp"
+            />
+        <TextView
+            android:id="@+id/tv_frag2_hscode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000.00-0000"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_gothic"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            />
+
+        <Spinner
+            android:id="@+id/spinner_frag2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_edge"
+            android:popupBackground="@drawable/round_edge_fill"
+            android:textColor="@color/black"
+            android:spinnerMode="dropdown"
+            android:layout_marginTop="10dp"
+            tools:listitem="@layout/support_simple_spinner_dropdown_item"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_frag2_table_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_marginBottom="140dp"
+        >
 
-</FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_frag2_productname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="품명 클릭"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_gothic"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            />
+
+        <!--수평 스크롤을 위한 스크롤 뷰-->
+        <HorizontalScrollView
+            android:id="@+id/horizontalscrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <!--수직 스크롤을 위한 스크롤 뷰-->
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <TableLayout
+                    android:id="@+id/tablelayout_frag2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rect_edge_black"
+                    android:layout_marginBottom="60dp"
+                    >
+                </TableLayout>
+            </ScrollView>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+
+</LinearLayout>

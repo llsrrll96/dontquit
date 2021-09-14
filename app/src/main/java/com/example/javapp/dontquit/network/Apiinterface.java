@@ -5,9 +5,9 @@ import com.example.javapp.dontquit.domain.History;
 import com.example.javapp.dontquit.domain.Hscodes;
 import com.example.javapp.dontquit.domain.Product;
 import com.example.javapp.dontquit.domain.ProductName;
-import com.example.javapp.dontquit.domain.TariffCN;
+import com.example.javapp.dontquit.domain.TariffCNLists;
 import com.example.javapp.dontquit.domain.TariffRequestBody;
-import com.example.javapp.dontquit.domain.TariffUSA;
+import com.example.javapp.dontquit.domain.TariffEUnUSALists;
 
 import java.util.List;
 
@@ -28,17 +28,21 @@ public interface Apiinterface
     @GET("api/history/{hsk}")
     Call<List<History>>getHistoyList(@Path("hsk") String hsk);
 
-    //    // China tariff
-//    @POST("api/tariff")
-//    Call<List<TariffCN>>getTariffCNList(@Body TariffRequestBody tariffRequestBody);
+    // EU tariff
+    @POST("api/tariff")
+    Call<TariffEUnUSALists>getTariffEUList(@Body TariffRequestBody tariffRequestBody);
 
     // USA tariff
     @POST("api/tariff")
-    Call<List<TariffUSA>>getTariffUSAList(@Body TariffRequestBody tariffRequestBody);
+    Call<TariffEUnUSALists>getTariffUSAList(@Body TariffRequestBody tariffRequestBody);
 
     // China tariff
     @POST("api/tariff")
-    Call<List<TariffCN>>getTariffCNList(@Body TariffRequestBody tariffRequestBody);
+    Call<TariffCNLists>getTariffCNList(@Body TariffRequestBody tariffRequestBody);
+
+    // Words
+    @POST("api/words")
+    Call<String> getWordsHypernyms(@Body ProductName productName);
 
 }
 

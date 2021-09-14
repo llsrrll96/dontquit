@@ -29,7 +29,7 @@ public class ViewPager2Adapter extends FragmentStateAdapter
             case 0:
                 return new Frag1(category);
             case 1:
-                return new Frag2();
+                return new Frag2(category.getHscode());
             case 2:
                 return new Frag3();
             default:

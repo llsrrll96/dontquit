@@ -1,10 +1,8 @@
 package com.example.javapp.dontquit.contract;
 
-import com.example.javapp.dontquit.domain.TariffCN;
+import com.example.javapp.dontquit.domain.TariffCNLists;
 import com.example.javapp.dontquit.domain.TariffRequestBody;
-import com.example.javapp.dontquit.domain.TariffUSA;
-
-import java.util.List;
+import com.example.javapp.dontquit.domain.TariffEUnUSALists;
 
 public interface TariffContract
 {
@@ -12,9 +10,9 @@ public interface TariffContract
     {
         interface OnFinishedListener
         {
-//            void onFinished(List<TariffCN> tariffCNList);
-            void onFinishedUSA(List<TariffUSA> tariffUSAList);
-            void onFinishedCN(List<TariffCN> tariffCNList);
+            void onFinishedEU(TariffEUnUSALists tariffEULists);
+            void onFinishedUSA(TariffEUnUSALists tariffEUnUSALists);
+            void onFinishedCN(TariffCNLists tariffCNLists);
 
             void onFailure(String message);
         }
@@ -25,9 +23,9 @@ public interface TariffContract
 
     interface View
     {
-//        void showResultUSA(List<TariffUSA> tariffUSAList);
-        void showResultUSA(List<TariffUSA> tariffUSAList);
-        void showResultCN(List<TariffCN> tariffCNList);
+        void showResultEU(TariffEUnUSALists tariffEUList);
+        void showResultUSA(TariffEUnUSALists tariffEUnUSALists);
+        void showResultCN(TariffCNLists tariffCNLists);
         void showProgress();
         void hideProgress();
         void showToast(String message);

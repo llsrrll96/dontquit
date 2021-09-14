@@ -38,7 +38,7 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
         init();
     }
 
-    public void init()
+    private void init()
     {
         try{
             recyclerviewHistory = (RecyclerView)findViewById(R.id.recyclerview_history);
@@ -65,7 +65,6 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
     @Override
     public void showResult(List<History> historyList)
     {
-        System.out.println("서버에서 받음: "+historyList.get(0).getNm());
         adapter = new HistoryRecyclerViewAdapter(this,historyList);
         recyclerviewHistory.setAdapter(adapter);
     }

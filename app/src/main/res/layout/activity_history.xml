@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="20dp"
     tools:context=".view.HistoryActivity">
 
@@ -15,10 +16,7 @@
         android:text="품목분류사례"
         android:textSize="20sp"
         android:fontFamily="@font/kotra_bold"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/white"/>
 
     <View
         android:id="@+id/view2"
@@ -26,29 +24,16 @@
         android:layout_height="2dp"
         android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_history"
-        tools:layout_editor_absoluteX="20dp" />
+        />
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll_history"
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recyclerview_history"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_history">
+        android:layout_height="wrap_content"
+        android:overScrollMode="always"
+        android:scrollbars="vertical" />
 
-        <androidx.recyclerview.widget.RecyclerView
 
-            android:id="@+id/recyclerview_history"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"
-            android:overScrollMode="always"
-            android:scrollbars="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout_history" />
-
-    </androidx.core.widget.NestedScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

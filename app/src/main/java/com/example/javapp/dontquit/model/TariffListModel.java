@@ -1,14 +1,13 @@
 package com.example.javapp.dontquit.model;
 
 import com.example.javapp.dontquit.contract.TariffContract;
-import com.example.javapp.dontquit.domain.TariffCN;
+import com.example.javapp.dontquit.domain.TariffCNLists;
 import com.example.javapp.dontquit.domain.TariffRequestBody;
-import com.example.javapp.dontquit.domain.TariffUSA;
+import com.example.javapp.dontquit.domain.TariffEUnUSALists;
 import com.example.javapp.dontquit.network.ApiClient;
 import com.example.javapp.dontquit.network.Apiinterface;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,39 +15,59 @@ import retrofit2.Response;
 
 public class TariffListModel implements TariffContract.Model
 {
-//    private List<TariffCN> tariffCNList = new ArrayList<>();
-    private List<TariffUSA> tariffUSAList = new ArrayList<>();
-    private List<TariffCN> tariffCNList = new ArrayList<>();
+    private TariffEUnUSALists tariffEULists;
+    private TariffEUnUSALists tariffEUnUSALists;
+    private TariffCNLists tariffCNLists;
     final Apiinterface service = ApiClient.getInstance().create(Apiinterface.class);
 
     @Override
     public void getTariffEUFromServer(OnFinishedListener onFinishedListener, TariffRequestBody tariffRequestBody)
     {
-    }
+        Call<TariffEUnUSALists> call = service.getTariffEUList(tariffRequestBody);
 
-    @Override
-    public void getTariffUSAFromServer(OnFinishedListener onFinishedListener, TariffRequestBody tariffRequestBody)
-    {
-        Call<List<TariffUSA>> call = service.getTariffUSAList(tariffRequestBody);
-
-        call.enqueue(new Callback<List<TariffUSA>>()
-        {
+        call.enqueue(new Callback<TariffEUnUSALists>() {
             @Override
-            public void onResponse(Call<List<TariffUSA>> call, Response<List<TariffUSA>> response)
+            public void onResponse(Call<TariffEUnUSALists> call, Response<TariffEUnUSALists> response)
             {
                 if(!response.isSuccessful())
                 {
                     onFinishedListener.onFailure(response.message());
                     return;
                 }
-                tariffUSAList = response.body();
-                onFinishedListener.onFinishedUSA(tariffUSAList);
+                tariffEULists = response.body();
+                onFinishedListener.onFinishedEU(tariffEULists);
             }
 
             @Override
-            public void onFailure(Call<List<TariffUSA>> call, Throwable t)
-            {
+            public void onFailure(Call<TariffEUnUSALists> call, Throwable t) {
+                onFinishedListener.onFailure("불러오기 실패");
+            }
+        });
+    }
 
+    @Override
+    public void getTariffUSAFromServer(OnFinishedListener onFinishedListener, TariffRequestBody tariffRequestBody)
+    {
+        Call<TariffEUnUSALists> call = service.getTariffUSAList(tariffRequestBody);
+
+        call.enqueue(new Callback<TariffEUnUSALists>()
+        {
+            @Override
+            public void onResponse(Call<TariffEUnUSALists> call, Response<TariffEUnUSALists> response)
+            {
+                if(!response.isSuccessful())
+                {
+                    onFinishedListener.onFailure(response.message());
+                    return;
+                }
+                tariffEUnUSALists = response.body();
+                onFinishedListener.onFinishedUSA(tariffEUnUSALists);
+            }
+
+            @Override
+            public void onFailure(Call<TariffEUnUSALists> call, Throwable t)
+            {
+                onFinishedListener.onFailure("불러오기 실패");
             }
         });
     }
@@ -56,26 +75,26 @@ public class TariffListModel implements TariffContract.Model
     @Override
     public void getTariffCNFromServer(OnFinishedListener onFinishedListener, TariffRequestBody tariffRequestBody)
     {
-        Call<List<TariffCN>>call =service.getTariffCNList(tariffRequestBody);
+        Call<TariffCNLists>call =service.getTariffCNList(tariffRequestBody);
 
-        call.enqueue(new Callback<List<TariffCN>>()
+        call.enqueue(new Callback<TariffCNLists>()
         {
             @Override
-            public void onResponse(Call<List<TariffCN>> call, Response<List<TariffCN>> response)
+            public void onResponse(Call<TariffCNLists> call, Response<TariffCNLists> response)
             {
                 if(!response.isSuccessful()){
                     onFinishedListener.onFailure(response.message());
                     return;
                 }
-                tariffCNList = response.body();
-                onFinishedListener.onFinishedCN(tariffCNList);
+                tariffCNLists = response.body();
+                onFinishedListener.onFinishedCN(tariffCNLists);
             }
 
             @Override
-            public void onFailure(Call<List<TariffCN>> call, Throwable t)
+            public void onFailure(Call<TariffCNLists> call, Throwable t)
             {
                 // presenter
-                onFinishedListener.onFailure(t.getMessage());
+                onFinishedListener.onFailure("불러오기 실패");
             }
         });
     }

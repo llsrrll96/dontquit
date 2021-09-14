@@ -3,6 +3,7 @@ package com.example.javapp.dontquit.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Context;
@@ -49,6 +50,7 @@ public class TabActivity extends AppCompatActivity {
                 textView.setText(tabElement.get(position));
                 textView.setGravity(Gravity.CENTER);
                 textView.setTextColor(ContextCompat.getColor(mContext,R.color.black));
+                textView.setTypeface(ResourcesCompat.getFont(mContext,R.font.font_kotra_bold));
                 tab.setCustomView(textView);
             }
         }).attach();
@@ -63,6 +65,7 @@ public class TabActivity extends AppCompatActivity {
         viewPager2Adapter = new ViewPager2Adapter(this,(Category) getIntent.getSerializableExtra("data"));
         viewPager2.setAdapter(viewPager2Adapter);
     }
+
     public void listener()
     {
     }

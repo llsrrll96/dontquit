@@ -43,7 +43,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:background="@color/white"
+            android:fontFamily="@font/kotra_gothic"
             android:text="실거래명 \n보기"
+            android:elevation="10dp"
             android:textColor="@color/black" />
     </LinearLayout>
 

@@ -1,6 +1,8 @@
 package com.example.javapp.dontquit.domain;
 
-public class TariffRequestBody
+import java.io.Serializable;
+
+public class TariffRequestBody implements Serializable
 {
     String hscode;
     String country;

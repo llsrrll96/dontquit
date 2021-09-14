@@ -8,6 +8,7 @@ import androidx.core.content.res.ResourcesCompat;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,6 +34,9 @@ import com.example.javapp.dontquit.network.Apiinterface;
 import com.example.javapp.dontquit.other.Loading;
 import com.example.javapp.dontquit.presenter.ProductListPresenter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -56,15 +60,17 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
     private Map<String,TextView> hs6contentMap;
     private Hscodes hscodes;
 
+    // 폰트
     Typeface fontKotraBold;
     Typeface fontKotraGothic;
 
-    // 중요
+    // MVP
     private ProductListPresenter presenter;
 
-    // element
+    // View
     private LinearLayout mainLinearLayout;
     private TextView tvResultQuery;
+    private TextView tvResultError;
 
     // 쓰레드 처리
     //화면 처리용 핸들러
@@ -97,6 +103,7 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
         mainLinearLayout = (LinearLayout) findViewById(R.id.layout_main);
         tvResultQuery = (TextView)findViewById(R.id.tv_result_query);
         tvResultQuery.setText(query);
+        tvResultError = (TextView)findViewById(R.id.tv_result_error);
 
         // 폰트 초기화
         fontKotraBold = ResourcesCompat.getFont(this,R.font.font_kotra_bold);
@@ -251,7 +258,6 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
                         if (hs6.equals(hscode.substring(0, 6)))
                         {
                             int idx = categories.getHscodes().indexOf(hscode);
-                            System.out.println(categories.getHscodes().get(idx)+", "+hscode);
                             ischeck.put(hs6, true);
 
                             LinearLayout inlayout = new LinearLayout(mContext);
@@ -318,13 +324,41 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
 
     @Override
     public void showToast(String message) {
-        Toast.makeText(this,message,Toast.LENGTH_LONG);
-        Log.v("error",message);
+        Toast.makeText(this,"검색결과 없음",Toast.LENGTH_LONG);
+
+        Runnable runnable =new Runnable() {
+            @Override
+            public void run()
+            {
+                try {
+                    Call<String> callWords = ApiClient.getInstance().create(Apiinterface.class).getWordsHypernyms(new ProductName(query));
+
+                    String resultMsg = callWords.execute().body();
+                    // runOnUiThread를 추가하고 그 안에 UI작업을 한다.
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            tvResultError.setText("검색결과 없음\n\n\n"+resultMsg);
+                        }
+                    });
+
+                } catch (IOException e) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            tvResultError.setText("검색결과 없음");
+                        }
+                    });
+                }
+            }
+        };
+        new Thread(runnable).start();
+
     }
 
     @Override
     public void onResponseFailure(Throwable throwable) {
-
     }
 
     @Override

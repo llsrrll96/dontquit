@@ -3,6 +3,7 @@ package com.example.javapp.dontquit.model;
 import android.util.Log;
 
 import com.example.javapp.dontquit.contract.ProductListContract;
+import com.example.javapp.dontquit.domain.Categories;
 import com.example.javapp.dontquit.domain.Product;
 import com.example.javapp.dontquit.domain.ProductName;
 import com.example.javapp.dontquit.network.ApiClient;
@@ -40,15 +41,16 @@ public class ProductListModel implements ProductListContract.Model
                 // 통신 성공
                 products =response.body();
                 onFinishedListener.onFinished(products);
-
             }
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
                 // presenter 통신 실패 함수 호출
+
                 onFinishedListener.onFailure(t.getMessage());
-                Log.v("error3",t.getMessage());
+                Log.v("onFailure",t.getMessage());
             }
+
         });
     }
 }
