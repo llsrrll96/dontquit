@@ -244,3 +244,35 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
     }
 }
 ~~~
+
+   
+- retrofit2 동기 요청
+~~~java
+    // 카테고리 TextView 생성
+    private void createHscode10UnitsStartThread()
+    {
+        for(Product product : this.products) hscodes.addHscodes(product.getHscode());
+
+        Log.v("hscodes",hscodes.getHscodes().get(0));
+
+
+        Runnable runnable =new Runnable() {
+            @Override
+            public void run()
+            {
+                // 카테고리를 동기로 얻어온다.
+                Call<Categories> call = ApiClient.getInstance().create(Apiinterface.class).getCategories(hscodes);
+                try {
+                    categories = call.execute().body();
+
+                    // UI 동적으로 수정
+                    handler.sendEmptyMessage(0);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        new Thread(runnable).start();
+    }
+~~~
