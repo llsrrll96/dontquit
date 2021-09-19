@@ -14,7 +14,7 @@
       * 수출입 통관 서류에서 매우 중요한 역할을 한다.
     * 문제 현황
       * 현재 KOTRA의 HSCODE 검색 사이트에서 실거래 품명으로 검색시 원하는 HSCODE 결과를 얻기 어렵다.
-
+코트라 HS코드 검색 사이트 <br>
 ![image](https://user-images.githubusercontent.com/58140426/133915191-df2e4105-da18-4d7a-802f-3da2f4b4e5e2.png)
 
 ## 2. Needs & Solution
