@@ -179,7 +179,7 @@ public class ProductListModel implements ProductListContract.Model
    
 검색결과 View 작성
 
-~~java 
+~~~java 
    
 public class ResultActivity extends AppCompatActivity implements ProductListContract.View
 {
