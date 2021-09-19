@@ -52,17 +52,18 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
     private Context mContext;
     private Intent getIntent;
     private String query="";
-
-    private List<Product> products; // 서버에서 받아온 추천 코드들
-    private Categories categories;
-    private Set<String> hs6set;
-    private Map<String,LinearLayout> hs6layoutMap;
-    private Map<String,TextView> hs6contentMap;
     private Hscodes hscodes;
+    private Set<String> hs6set;                     // 6단위 그룹화
+
+    private List<Product> products;                 // 서버에서 받아온 추천 코드들
+    private Categories categories;
+
+    private Map<String,LinearLayout> hs6layoutMap;  // 동적 레이아웃
+    private Map<String,TextView> hs6contentMap;     // 동적
 
     // 폰트
-    Typeface fontKotraBold;
-    Typeface fontKotraGothic;
+    private Typeface fontKotraBold;
+    private Typeface fontKotraGothic;
 
     // MVP
     private ProductListPresenter presenter;
@@ -84,7 +85,7 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
         init();
     }
 
-    public void init()
+    private void init()
     {
         handler = new DisplayHandler();
         mContext = this;
@@ -108,7 +109,6 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
         // 폰트 초기화
         fontKotraBold = ResourcesCompat.getFont(this,R.font.font_kotra_bold);
         fontKotraGothic = ResourcesCompat.getFont(this,R.font.font_kotra_gothic);
-
     }
 
 
@@ -121,10 +121,12 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
         hs6set = new LinkedHashSet<>();
         for(Product product:products) hs6set.add(product.getHs6());
 
-        createComponents();
+        createHscode6Units();
+        // Hscodes 카테고리 TextView 생성
+        createHscode10UnitsStartThread();
     }
 
-    public void createComponents()
+    private void createHscode6Units()
     {
         // linearLayout params 정의
         LinearLayout.LayoutParams hs6LayoutParams = new LinearLayout.LayoutParams(
@@ -177,7 +179,7 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
 
             // hs6을 키로 저장
             hs6contentMap.put(hs6,tvHs6Content); // 동적으로 6단위 해설 set
-            hs6layoutMap.put(hs6,rootLayout);   // 동적으로 10단위 set
+            hs6layoutMap.put(hs6,rootLayout);    // 동적으로 10단위 set
 
             // 추가하는 부분
             hs6innerLayout.addView(view);
@@ -186,13 +188,10 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
             rootLayout.addView(hs6innerLayout);
             mainLinearLayout.addView(rootLayout);
         }
-
-        // Hscodes
-        startThread();
     }
 
-    // 보류
-    public void startThread()
+    // 카테고리 TextView 생성
+    private void createHscode10UnitsStartThread()
     {
         for(Product product : this.products) hscodes.addHscodes(product.getHscode());
 

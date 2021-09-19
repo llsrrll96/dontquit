@@ -22,10 +22,10 @@ import com.example.javapp.dontquit.view.HistoryActivity;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Frag1#newInstance} factory method to
+ * Use the {@link FragHscodeInfo#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Frag1 extends Fragment {
+public class FragHscodeInfo extends Fragment {
     private Category category;
     private TextView tvHscode;
     private TextView tvUnitName;
@@ -33,7 +33,7 @@ public class Frag1 extends Fragment {
     private ImageView iv;
     private Button btnHistory;
 
-    public Frag1(Category category) {
+    public FragHscodeInfo(Category category) {
         this.category = category;
     }
 

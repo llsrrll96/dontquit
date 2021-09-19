@@ -25,11 +25,11 @@ import java.util.List;
 //https://helloit.tistory.com/309
 public class TabActivity extends AppCompatActivity {
 
-    TabLayout tabLayout ;
-    ViewPager2 viewPager2;
-    ViewPager2Adapter viewPager2Adapter;
-    Context mContext;
-    Intent getIntent;
+    private TabLayout tabLayout ;
+    private ViewPager2 viewPager2;
+    private ViewPager2Adapter viewPager2Adapter;
+    private Context mContext;
+    private Intent getIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,6 @@ public class TabActivity extends AppCompatActivity {
 
         mContext = this;
         init();
-        listener();
-
 
         final List<String> tabElement = Arrays.asList("품목분류해설","관세율","통계");
 
@@ -56,7 +54,7 @@ public class TabActivity extends AppCompatActivity {
         }).attach();
     }
 
-    public void init()
+    private void init()
     {
         getIntent=  getIntent();
 
@@ -64,9 +62,5 @@ public class TabActivity extends AppCompatActivity {
         viewPager2 = (ViewPager2) findViewById(R.id.viewPager2_container);
         viewPager2Adapter = new ViewPager2Adapter(this,(Category) getIntent.getSerializableExtra("data"));
         viewPager2.setAdapter(viewPager2Adapter);
-    }
-
-    public void listener()
-    {
     }
 }

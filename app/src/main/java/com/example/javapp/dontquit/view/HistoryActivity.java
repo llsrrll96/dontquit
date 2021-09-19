@@ -20,6 +20,7 @@ import com.google.android.flexbox.JustifyContent;
 
 import java.util.List;
 
+// 품목 분류 사례를 보여주는 액티비티
 public class HistoryActivity extends AppCompatActivity implements HistoryContract.View{
 
     private String hscode=null;
@@ -58,7 +59,6 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
         }catch (Exception e){
             finish();
         }
-
     }
 
 

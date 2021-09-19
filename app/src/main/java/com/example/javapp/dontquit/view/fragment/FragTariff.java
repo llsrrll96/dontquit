@@ -38,7 +38,7 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class Frag2 extends Fragment implements TariffContract.View
+public class FragTariff extends Fragment implements TariffContract.View
 {
     private Context mContext;
     private View mView;
@@ -56,8 +56,8 @@ public class Frag2 extends Fragment implements TariffContract.View
     private SpinnerFrag2Adapter spAdapter;
 
     //폰트
-    Typeface fontKotraBold;
-    Typeface fontKotraGothic;
+    private Typeface fontKotraBold;
+    private Typeface fontKotraGothic;
 
     //EU
     //USA : hscode,품명,기본세율,FTA,hs6
@@ -67,10 +67,10 @@ public class Frag2 extends Fragment implements TariffContract.View
     final int USAColSIZE = usaCol.length;
     final int CNColSIZE = cnCol.length;
     //MVP
-    TariffPresenter tariffPresenter;
+    private TariffPresenter tariffPresenter;
 
     //Constructor
-    public Frag2(String hscode) {
+    public FragTariff(String hscode) {
         this.hscode = hscode;
     }
 
@@ -141,7 +141,7 @@ public class Frag2 extends Fragment implements TariffContract.View
         //Layout에 있는 모든 View들이 사라지게 된다.
         if (tableLayout != null )tableLayout.removeAllViews();
 
-        createTableRowCol(usaCol,USAColSIZE);
+        createTableRowCol(usaCol);
 
 
         //=========================Values=========================//
@@ -195,7 +195,7 @@ public class Frag2 extends Fragment implements TariffContract.View
         //Layout에 있는 모든 View들이 사라지게 된다.
         if (tableLayout != null )tableLayout.removeAllViews();
 
-        createTableRowCol(usaCol,USAColSIZE);
+        createTableRowCol(usaCol);
 
 
         //=========================Values=========================//
@@ -250,7 +250,7 @@ public class Frag2 extends Fragment implements TariffContract.View
         //Layout에 있는 모든 View들이 사라지게 된다.
         if (tableLayout != null )tableLayout.removeAllViews();
 
-        createTableRowCol(cnCol,CNColSIZE);
+        createTableRowCol(cnCol);
 
 
         //=========================Values=========================//
@@ -311,8 +311,8 @@ public class Frag2 extends Fragment implements TariffContract.View
 
     }
 
-
-    private void createTableRowCol(String[] columns ,int rowSize)
+    // 테이블의 속성 row 생성
+    private void createTableRowCol(String[] columns)
     {
         TableRow tableRowCol = new TableRow(mContext);
         tableRowCol.setLayoutParams(new TableRow.LayoutParams(

@@ -9,7 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient
 {
-    private static final String BASE_URL = "http://10.0.2.2:8080/";	// 기본 Base URL
+    //"http://10.0.2.2:8080/"
+    private static final String BASE_URL = "https://dontquit.herokuapp.com/";	// 기본 Base URL
 
     public static ApiClient ourInstance = null;
     private static Retrofit retrofit = null;	// private 접근한정자로 외부에서 직접 접근 방지

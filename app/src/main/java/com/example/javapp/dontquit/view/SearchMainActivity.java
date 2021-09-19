@@ -12,7 +12,7 @@ import com.example.javapp.dontquit.R;
 public class SearchMainActivity extends AppCompatActivity {
 
     private SearchView searchView;
-    Intent intent;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +23,13 @@ public class SearchMainActivity extends AppCompatActivity {
         exListener();
     }
 
-    public void init()
+    private void init()
     {
         searchView = (SearchView) findViewById(R.id.search_view_main);
         intent = new Intent(getApplicationContext(),ResultActivity.class);
     }
 
-    public void exListener()
+    private void exListener()
     {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

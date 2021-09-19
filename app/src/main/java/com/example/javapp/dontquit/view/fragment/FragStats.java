@@ -12,10 +12,10 @@ import com.example.javapp.dontquit.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Frag3#newInstance} factory method to
+ * Use the {@link FragStats#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Frag3 extends Fragment {
+public class FragStats extends Fragment {
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

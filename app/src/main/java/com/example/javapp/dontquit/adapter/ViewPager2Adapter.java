@@ -6,9 +6,9 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.javapp.dontquit.domain.Category;
-import com.example.javapp.dontquit.view.fragment.Frag1;
-import com.example.javapp.dontquit.view.fragment.Frag2;
-import com.example.javapp.dontquit.view.fragment.Frag3;
+import com.example.javapp.dontquit.view.fragment.FragHscodeInfo;
+import com.example.javapp.dontquit.view.fragment.FragTariff;
+import com.example.javapp.dontquit.view.fragment.FragStats;
 
 public class ViewPager2Adapter extends FragmentStateAdapter
 {
@@ -27,11 +27,11 @@ public class ViewPager2Adapter extends FragmentStateAdapter
         switch (position)
         {
             case 0:
-                return new Frag1(category);
+                return new FragHscodeInfo(category);
             case 1:
-                return new Frag2(category.getHscode());
+                return new FragTariff(category.getHscode());
             case 2:
-                return new Frag3();
+                return new FragStats();
             default:
                 return null;
         }
