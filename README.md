@@ -2,7 +2,7 @@
 
 ## 팀명 : Don't Quit
 
-#### 빅리더 AI 아카데미 에서 진행한 *코트라(대한무역투자진흥공사) 협업 프로젝트
+#### 빅리더 AI 아카데미 에서 진행한 *코트라(대한무역투자진흥공사)* 협업 프로젝트
 [BIG 빅리더](https://bigleader.net/) <br>
 [팀 영상](https://www.youtube.com/watch?v=yN5rmja-LNo&t=1s)
 
