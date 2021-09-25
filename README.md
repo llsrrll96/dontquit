@@ -1,5 +1,7 @@
 # HS 품목 분류 결정 및 추천 안드로이드 어플리케이션
 
+APK : https://drive.google.com/file/d/1uDUPY_ljD0qjBa_opR088Rw65vBf98PQ/view?usp=sharing
+
 ## 팀명 : Don't Quit
 
 #### 빅리더 AI 아카데미 에서 진행한 *코트라(대한무역투자진흥공사)* 협업 프로젝트
