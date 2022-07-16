@@ -8,7 +8,7 @@ APK : https://drive.google.com/file/d/1uDUPY_ljD0qjBa_opR088Rw65vBf98PQ/view?usp
 [BIG 빅리더](https://bigleader.net/) <br>
 [팀 영상](https://www.youtube.com/watch?v=yN5rmja-LNo&t=1s)
 
-## 1. **프로젝트 동기**
+## 1. **프로젝트 **
 * HSCODE 란
    * 국제 통일 분류 체계
       * 최대 10자리로 이루어져있다.
