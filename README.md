@@ -5,9 +5,8 @@ APK : https://drive.google.com/file/d/1uDUPY_ljD0qjBa_opR088Rw65vBf98PQ/view?usp
 ## 팀명 : Don't Quit
 
 #### 빅리더 AI 아카데미 에서 진행한 *코트라(대한무역투자진흥공사)* 협업 프로젝트
-[BIG 빅리더](https://bigleader.net/) <br>
 [팀 영상](https://www.youtube.com/watch?v=yN5rmja-LNo&t=1s) <br>
-[Flask 서버](https://github.com/llsrrll96/doit_api.git) <br>
+[Flask 서버 깃허브](https://github.com/llsrrll96/doit_api.git) <br>
 
 ## 1. 프로젝트
 * HSCODE 란
@@ -27,10 +26,8 @@ APK : https://drive.google.com/file/d/1uDUPY_ljD0qjBa_opR088Rw65vBf98PQ/view?usp
    * 누구나 쉽게 HSCODE를 찾을 수 있도록 HSCODE 네비게이터 역할
 
 ## 4. Tech stack
-   - Android Studio Arctic Fox
-   - Java8
-   - MVP 패턴
-   - REST API - Retrofit2
+   - Android Studio(Java 8)
+   - Retrofit2
 
 ## 5. 시연 <br>
 
@@ -279,3 +276,6 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
         new Thread(runnable).start();
     }
 ~~~
+  
+### 빅리더AI
+[BIG 빅리더](https://bigleader.net/) <br>
