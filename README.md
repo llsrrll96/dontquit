@@ -278,4 +278,4 @@ public class ResultActivity extends AppCompatActivity implements ProductListCont
 ~~~
   
 ### 빅리더AI
-[BIG 빅리더](https://bigleader.net/) <br>
+[빅리더](https://bigleader.net/) <br>
